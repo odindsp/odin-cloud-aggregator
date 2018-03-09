@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <groupId>com.pxene</groupId>
+    <artifactId>odin-cloud-aggregator</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+
+    <name>Odin-Cloud-Aggregator</name>
+
+
+    <modules>
+        <module>odin-cloud-parent</module>
+        <module>odin-cloud-eureka-server</module>
+        <module>odin-cloud-config-server</module>
+        <module>odin-cloud-web</module>
+        <module>odin-cloud-gateway-service</module>
+        <module>odin-cloud-user-service</module>
+        <module>odin-cloud-basic-service</module>
+        <module>odin-cloud-channel-service</module>
+        <module>odin-cloud-advertise-service</module>
+    </modules>
+</project>

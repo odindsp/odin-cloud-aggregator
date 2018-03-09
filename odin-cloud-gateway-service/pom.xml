@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<project
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+    xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <parent>
+        <groupId>com.pxene</groupId>
+        <artifactId>odin-cloud-parent</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../odin-cloud-parent</relativePath>
+    </parent>
+
+
+    <artifactId>odin-cloud-gateway-service</artifactId>
+    <name>Odin-Cloud-Gateway-Service</name>
+
+
+    <properties>
+        <docker-repostory>192.168.7.10:1988</docker-repostory>
+        <docker-image-prefix>pxene</docker-image-prefix>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zuul</artifactId>
+        </dependency>
+    </dependencies>
+
+
+    <!-- <build>
+        <resources>
+            <resource>
+                <directory>src/main/docker</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/Dockerfile</include>
+                </includes>
+                <targetPath>../docker</targetPath>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <id>build-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                        <configuration>
+                            <imageName>${docker-image-prefix}/${project.artifactId}:${project.version}</imageName>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>tag-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>tag</goal>
+                        </goals>
+                        <configuration>
+                            <image>${docker-image-prefix}/${project.artifactId}:${project.version}</image>
+                            <newName>${docker-repostory}/${docker-image-prefix}/${project.artifactId}:${project.version}</newName>
+                            <retryPushCount>1</retryPushCount>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>push-image</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>push</goal>
+                        </goals>
+                        <configuration>
+                            <imageName>${docker-repostory}/${docker-image-prefix}/${project.artifactId}:${project.version}</imageName>
+                            <pushImage>true</pushImage>
+                        </configuration>
+                    </execution>
+                </executions>
+                <configuration>
+                    Docker 环境的宿主机IP，可以在操作系统中新建DOCKER_HOST环境变量
+                    <dockerHost>http://192.168.7.11:2375</dockerHost>
+
+                    登录认证
+                    <serverId>docker-hub</serverId>
+                    <registryUrl>${docker-repostory}</registryUrl>
+
+                    指定是否要在Maven的build阶段之后，push生成的镜像，默认为否
+                    <pushImage>false</pushImage>
+
+                    
+                                                                            查找Dockerfile文件所在目录，指定后，baseImage, maintainer, cmd和entryPoint等标签均失效。
+                         dockerDirectory目录下的所有内容默认会被复制到${project.build.directory}/docker目录下。
+                   
+                    <dockerDirectory>target/docker</dockerDirectory>
+
+                    需要引用到构建中的资源
+                    <resources>
+                        <resource>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                            <targetPath>/</targetPath>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build> -->
+</project>
